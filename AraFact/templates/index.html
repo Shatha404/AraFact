@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تصنيف النصوص العربية</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.2)), 
+                        url('/static/arabic.jpeg') center/cover no-repeat;
+            background-repeat: no-repeat;
+            background-size: cover; 
+            background-position: center; 
+            justify-content: center;
+            align-items: center; 
+            height: 100vh; 
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: rgb(252, 250, 250);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #949698;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #818284;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        h1 {
+            color: #B22222;
+        }
+    </style>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+    <nav class="bg-white shadow-md fixed w-full top-0">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-red-600">📜 تصنيف النصوص</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="javascript:void(0);" onclick="toggleAbout()" class="text-gray-700 hover:text-red-600">عن المشروع</a>
+            </div>
+            <button onclick="toggleDarkMode()" class="bg-gray-200 p-2 rounded-md">🌙</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="text-3xl font-bold">مرحبًا بك في المصنف العربي</h1>
+        <p>أدخل نص عربي أدناه لتصنيفه إلى فئة</p>
+        <form id="predictForm">
+            <textarea id="inputText" name="text" placeholder="أكتب النص هنا"></textarea>
+            <button type="button" onclick="makePrediction()">صنف</button>
+        </form>
+        <div class="result" id="result">
+            {% if prediction %}
+                <p><strong>التصنيف:</strong> {{ prediction }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div id="about-section" class="hidden p-6 bg-white shadow-md rounded-md m-6">
+        <h2 class="text-2xl font-bold text-red-600">📌 عن المشروع</h2>
+        <p class="mt-4 text-gray-700">
+            هذا المشروع يهدف إلى تصنيف النصوص العربية باستخدام تقنيات الذكاء الاصطناعي.
+            يعتمد على التعلم العميق لمعالجة وتحليل النصوص العربية بدقة وسهولة.
+        </p>
+    </div>
+
+    <script>
+        async function makePrediction() {
+            const text = document.getElementById("inputText").value;
+            const formData = new FormData();
+            formData.append("text", text);
+
+            const response = await fetch('/', {
+                method: 'POST',
+                body: formData
+            });
+
+            document.open();
+            document.write(await response.text());
+            document.close();
+        }
+
+        function toggleAbout() {
+            document.getElementById('about-section').classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

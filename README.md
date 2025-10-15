@@ -11,14 +11,14 @@ AraFacts is a specialized dataset for Arabic fact-checking containing:
 
 ### Methodology
 #### Data Cleaning
-1- Missing & Duplicate Data: Removed incomplete and duplicate records
-2- Normalization: Standardized text to UTF-8 Unicode format
-3- Diacritic Removal: Removed diacritics to standardize word forms
-4- Stopword Filtering: Filtered common Arabic stopwords (و، في، على)
-5- Stemming: Applied Farasa for prefix/suffix removal and stemming
+- Missing & Duplicate Data: Removed incomplete and duplicate records
+- Normalization: Standardized text to UTF-8 Unicode format
+- Diacritic Removal: Removed diacritics to standardize word forms
+- Stopword Filtering: Filtered common Arabic stopwords (و، في، على)
+- Stemming: Applied Farasa for prefix/suffix removal and stemming
 
 #### Preprocessing
-1- Tokenization: Converted text into tokens using AraBERT tokenizer
+1- Tokenization: Converted text into tokens using AraBERT tokenizer.
 2- Padding & Truncation: Standardized input lengths for batch processing
 3- Label Encoding: Converted categorical labels to numerical values
 4- Dataset Format: Converted to Hugging Face Dataset format

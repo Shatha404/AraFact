@@ -65,6 +65,6 @@ Despite challenges such as class imbalance and Arabic linguistic complexity, the
 ### Tools & Libraries
 - Python
 - Hugging Face Transformers
-- Pandas, NumPy
-- Seaborn, Matplotlib, Plotly
+- Pandas
+- Matplotlib, 
 - Farasa Arabic NLP Toolkit

@@ -19,9 +19,9 @@ AraFacts is a specialized dataset for Arabic fact-checking containing:
 
 #### Preprocessing
 1- Tokenization: Converted text into tokens using AraBERT tokenizer.
-2- Padding & Truncation: Standardized input lengths for batch processing
-3- Label Encoding: Converted categorical labels to numerical values
-4- Dataset Format: Converted to Hugging Face Dataset format
+2- Padding & Truncation: Standardized input lengths for batch processing.
+3- Label Encoding: Converted categorical labels to numerical values.
+4- Dataset Format: Converted to Hugging Face Dataset format.
 
 #### Model Training
 - Primary Model: bert-base-arabertv02 (AraBERT)

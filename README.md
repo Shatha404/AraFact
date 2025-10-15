@@ -44,6 +44,7 @@ AraFacts is a specialized dataset for Arabic fact-checking containing:
 | **DistilBERT** | <70%                  | Poor performance |
 | **CAMeLBERT**  | Similar to DistilBERT |                  |
 
+#### AraBERT Classification Results
 | **Class**        | **Precision** | **Recall** | **F1-Score** |
 | ---------------- | ------------- | ---------- | ------------ |
 | **False**        | 0.89          | 0.96       | 0.93         |
@@ -51,6 +52,7 @@ AraFacts is a specialized dataset for Arabic fact-checking containing:
 | **True**         | 0.78          | 0.04       | 0.08         |
 | **Sarcasm**      | 0.00          | 0.00       | 0.00         |
 | **Unverifiable** | 0.00          | 0.00       | 0.00         |
+
 Overall Accuracy: 91%
 
 ### Challenges & Solutions
